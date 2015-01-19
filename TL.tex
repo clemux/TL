@@ -1,0 +1,288 @@
+\documentclass[12pt, a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+
+\title{Théorie des langages}
+\author{Licence d'informatique}
+\date{Université de Strasbourg}
+
+\begin{document}
+
+\maketitle
+
+\part{Langages}
+% * <clemux@gmail.com> 2015-01-19T14:45:35.237Z:
+%
+%  Fait une partie pour pas avoir 0.1 etc.
+%  Use backslashes, n00b
+%
+
+\chapter{Introduction}
+
+\section*{Quelques définitions}
+
+\paragraph{Langage} on appelle \textit{langage} tout ensemble de mots ;
+
+\paragraph{Alphabet} on appelle \textit{alphabet} tout ensemble fini (non vide) de symboles ;
+
+
+Pour les langages de programmation, un programme peut être vu comme un mot faisant partie de ce langage. Le compilateur vérifie ensuite dire que ce mot est conforme au langage, à ce qu’il attend. On met donc des mécanismes d’analyse syntaxique, on parle de \textit{grammaire}.
+
+
+\paragraph{Grammaire} syntaxe, qui donne les mots admissibles par un langage.
+
+\paragraph{Exemple} langage binaire
+
+Alphabet : $\{0, 1\}$
+
+Mots : 0, 1, 01, 00001.
+
+Il existe deux façons de définir un langage : par extension ou par intention Le mot vide est noté $\Sigma$
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+classes de langages & reconnaissance d'un mot & génération d'un mot \\ \hline \hline
+langage régulier  & automates finis & grammaire régulière \\ \hline
+langage algébrique & automates à pile & grammaire algébrique \\ \hline
+langage récursif & machine de Turing & grammaires sans contrainte \\
+\hline
+\end{tabular}
+\end{center}
+
+Ces classes de langage sont présentées du plus restreint au plus large, ou plus formellement :
+\[
+\text{langages réguliers}
+\;\subseteq\text{langages algébriques}
+\;\;\subseteq\text{langages récursifs}
+\;\;\;\subseteq\text{tous les langages}
+\]
+
+\section{Ensemble, relation, fonction et langage}
+
+
+Un \textit{ensemble} est une collection non-ordonnée d'objets qui sont appelés les \textit{éléments} de l'ensemble. 
+
+Les ensembles ont été formellement définis suite au \textit{paradoxe de Russel} .
+
+\subsection{Exemple}
+
+\[
+I = {1, 2, 3, 5, 8, 10}
+\]
+
+
+\subsection{Opérations sur les ensembles}
+
+Soient $A$ et $B$ deux ensembles.
+
+% union
+\[ A \cup B = \{ e | e \in A \textrm{ ou } e \in B \} \]
+% intersection
+\[ A \cap B = \{ e | e \in A \textrm{ et } e \in B \} \]
+% différence
+\[ A \backslash B = \{ e | e \in A \textrm{ et } e \not\in B \} \]
+% différence symétrique
+\[ A \Delta B = (A \backslash B)\cup (A \backslash B) \]
+% ensemble des parties
+\[ P(A) = { C | C \subseteq A} \]
+% produit cartésien
+\[ A \times B = \]
+
+\subsection{Lois de Morgan}
+Soient $A, B, C$ des ensembles. Alors
+\[
+A\backslash(B \cup C) = (A\backslash B=\cap(A\backslash C) \\
+A\backslash(B \cap C) = (A\backslash B=\cup(A\backslash C)
+\]
+
+\paragraph{Remarques :} soient $A, B$ deux ensembles. Alors :
+\[
+A=B \Leftrightarrow A\subseteq B \text{ et } B\subseteq A
+\]
+
+Pour des $n$-uplets, l'égalité devient a :
+\[
+(e_1,e_2,\dots,e_n)=(f_1,f_2,\dots,f_n)\Leftrightarrow e_1=f_1,e_2=f_2,\dots,e_n=f_n
+\]
+
+\subsection{Définition}
+
+
+Soit $A$ un ensemble et $\Pi \subseteq \mathcal{P}(A)$
+
+$/Pi$ est dit une partition de $A$ si et seulement si :
+\begin{itemize}
+\item $A = \bigcup_{k\in K} \text{ ou }\Pi=\{B_k \mid k\in K\}$
+\item $B_i\bigcap B_j = \emptyset \; \forall i, j\in K \mid i\neq j$
+\item $B_i \neq \emptyset$
+\end{itemize}
+
+Exemple : $A=\{1,2,3,4,5\}, \Pi=\{\{1,3\},4,\{2,5\}\} = \{B_1,B_2,B_3\}$
+
+\subsection{Relations}
+
+Soient $E_1$, $E_2$, $\dots$, $E_n$, $n$ ensembles. Une relation $R$ $n$-aire (d'arité $n$) sur $E_1$, $E_2$, ..., $E_n$ est un sous-ensemble de $E_1 \times E_2 \times \dots \times E_n$.
+
+
+Autrement dit $R \subseteq E_1 \times E_2 \times \dots \times E_n$.
+
+
+Pour $n = 2$, R est dite une relation binaire.
+
+\paragraph{Notation} Si $E = E_1 = E_2 = \dots = E_n$, alors $E_1 \times \dots \times E_n$ est noté $E^{n}$.
+
+
+
+\subsection{Relations fonctionelles}
+
+Soit $R$ une relation $n$-aire sur $E_1\times E_2\times\dots E_{n-1}\times E_n$ avec $n\geq 2$. Si, pour tout $(e_1,e_2,\dots,e_{n-1})\in E_1\times E_2\times\dots E_{n-1}$, il existe \textit{un et un seul} $e_n\in E_n$ tel que $(e_1,e_2,\dots,e_{n-1},e_n) \in R$.
+
+On dit alors que $R$ est une relation fonctionnelle relativement à $E_1\times E_2\times\dots E_{n-1}$. On utilisera la notation : $e_n = f_R(e_1,\dots,e_{n-1})$ qui est l'unique élément tel que $(e_1,e_2,\dots,e_{n-1},e_n)\in R$.
+
+De plus, $f_R$ est appelé la fonction associée à la relation fonctionnelle $R$. $E_1\times E_2\times\dots E_{n-1}$ est appelé le domaine (ou ensemble de départ) de $f_R$ et $E_n$ est appelé l'ensemble d'arrivée de $f_R$.
+
+\paragraph{Notation :} soit $R$ une relation fonctionne sur $E_1\times\dots\times E_{n-1}\times E_n$. On note :
+\[
+f_R : E_1\times\dots\times E_{n-1} \longmapsto E_n
+\]
+
+\paragraph{Définitions :} soient $A, B$ deux ensembles et $f_R : A\mapsto B$.
+
+\begin{itemize}
+\item $f_R$ est dite injective (une injection) si $\forall a, a' \in A$
+\[a\neq a' \Rightarrow f_R(a) \neq f_R(a')\]
+
+\item $f_R$ est dite surjectif (une surjection) si $\forall b\in B$, il existe $a\in A$ tel que $b = f_R(a)$
+
+\item $f_R$ est dite bijective (une bijection) si $f_R$ est à la fois injective est bijective.
+
+\item Lorsque la fonction $f_R$ est bijective, alors $f_R^{-1}$ est la fonction associée à la relation $R^{-1} = \{(b,a) \mid (a,b) \in R\}$. En particulier, $R^{-1}$ est fonctionelle relativement à $B$. Autrement dit :
+\[f_R^{-1} = f_{R^{-1}}\]
+Dans ce cas, $f_{R^{-1}}$ est bijective.
+
+\item De plus, $\forall (a, b) \in A\times B$ : 
+\[b=f_R(a) \leftrightarrow a = f_R^{-1}(b)\]
+Si $f_R$ est bijective, alors $\big((f_R)^{-1}\big)^{-1} = f_R$
+
+\item Soient $R_1 \subseteq A\times B$ et $R_2 \subseteq B\times C$ deux relations binaires.
+\[R_1 \circ R_2 = \{(a,c) \in A \times C \mid \exists b\in B \text{ tel que }(a,b)\in R_1 \text{ et } (b,c)\in R_2\} \]
+$R_1 \circ R_2$ est la composition de $R_1$ et de $R_2$.
+\end{itemize}
+
+\paragraph{Propriété :} soit $R$ une relation fonctionnelle sur $A\times B$ telle que $f_R$ est bijective. Alors :
+
+\begin{itemize}
+\item $R\circ R^{-1} = \{(a,a)\mid a\in A\}$
+\item $R^{-1}\circ R = \{(b,b)\mid b\in B\}$
+\end{itemize}
+
+\subsection{Relations fonctionnelles particulières}
+Soir $R$ une relation binaire sur $A^2 (R\subseteq A^2)$.
+
+\begin{itemize}
+\item $R$ est dite réflexive si $\forall a\in A, (a,a)\in R$
+\item $R$ est dite symétrique si $\forall a, b\in A, (a,b)\in R \Rightarrow (b,a)\in R$
+\item $R$ est dite transitive si $\forall a, b, c\in A, (a,b)\in R$ et $(b,c)\in R \Rightarrow (a,c)\in R$
+\item $R$ est une relation d'équivalence si $R$ est à la fois réfléxive, symétrique et transitive.
+\item $R$ est dite antisymétrique si $\forall a, b\in A, (a,b)\in R$ et $a\neq b \Rightarrow (b,a)\not\in R$
+\item $R$ est une relation d'ordre si $R$ est à la fois réflexive, antisymétrique et transitive.
+\item $R$ est une relation d'ordre total si $R$ est une relation d'ordre et pour tout $a, b\in A$, si $(a,b) \not\in R$, alors $(b,a)\in R$
+\end{itemize}
+
+\subsection{Représentation de relations}
+
+Soit $A = \{1,2,3\}$ un ensemble, et la relation $R = \{(1,2),(1,3),(2,3)\}$ une relation sur $A$. On peux représenter cette relation sous plusieurs formes :
+
+\paragraph{Forme matricielle}
+%\[
+%M = \bordermatrix{~ & 1 & 2 & 3 \cr
+%                  1 & 0 & 1 & 1 \cr
+%                  2 & 0 & 0 & 1 \cr
+%                  3 & 0 & 0 & 0 \cr}
+%\]
+
+\paragraph{Graphes}
+% représentation en graphe
+%R = (1,2),(1;3),(2,3)
+%1 -> 2
+%1 -> 3
+%2 -> 3
+\begin{tikzpicture}
+\tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
+\tikzstyle{edge} = [draw,thick,->]
+\tikzstyle{weight} = [font=\small]
+\begin{figure}
+\begin{tikzpicture}[scale=1.8, auto,swap]
+   % draw the vertices
+\foreach \pos/\name in {{(0,2)/a}, {(3,2)/b}}
+    \node[vertex] (\name) at \pos {$\name$};
+% Connect vertices with edges and draw weights
+\foreach \source/ \dest /\weight in {a/b/1, b/a/2}
+    \path[edge] (\source) -- node[weight] {$\weight$} (\dest);
+ 
+\end{tikzpicture}
+\end{figure}
+
+
+\paragraph{Notations}
+
+Soit $R$ une relation d'équivalence $A \times A$ ($A^{2}) et soit $a \in A$.
+
+\begin{itemize}
+\item $[a]_{R} = { b \in A | (a,b) \in R} }$ est la classe de A relative à la relation d'équivalence R
+\item $A/R = {[a]_{R} | a \in A}$ est le quotient de A par R
+\end{itemize}
+
+\paragraph{Propriétés}
+
+\begin{itemize}
+\item Soit $R$ une relation d'équivalence par $A \times A$. Alors $A/R$ est une partition de l'ensemble $A$.
+\item Réciproquement si $\Pi$ est une partition de $A$ alors il existe 
+une et une seule relation d'équivalence $R_{\Pi}$ tel que $\Pi = A/R_{\Pi}$.
+
+\end{itemize}
+
+\paragraph{Preuve :}
+\begin{itemize}
+\item $\forall a\in A, a\in [a]_R$ car $R$ est réflexive. Donc $A = \bigcup_{a\in A}[a]_R$
+\item Soient $a, a\in A$. Montrons que si $[a]_R\cap [a']_R =\emptyset$, alors $[a]_R=[a']_R$
+\end{itemize}
+
+\paragraph{Relations binaires particulières}
+
+
+Soit $b \in [a]_{R} \cap [a']_{R}$.
+
+
+Alors $(a, b) \in R$ et $(a', b) \in R$
+
+
+
+Comme R est symétrique alors (b, a') in R et comme R est transitive alors (a, a') in R
+
+
+Et donc pour tou c de [a']_R 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
