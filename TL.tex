@@ -538,7 +538,7 @@ deux cas sont possibles :
   \item $m \leq n-1$ et dans ce cas, le chemin cherché est $C$.
   \item $m \geq n \Rightarrow m+1 \geq n+1$. Donc, il existe $0\leq i < j < m$
   tel que $e_i = e_j$.
-  Posons $C' = $e_0, e_1, \dots, e_i, e_{j+1}, \dots, e_m$ est un chemin de
+  Posons $C' = e_0, e_1, \dots, e_i, e_{j+1}, \dots, e_m$ est un chemin de
   début $e$ et de fin $e'$
   plus court que $C$.
 \end{enumerate}
@@ -546,11 +546,10 @@ deux cas sont possibles :
 \paragraph{Définition}
 
 La clôture réflexive et transitive $R^{*}$ d'une relation binaire $R$ sur un ensemble E
-($R \subseteq E^2) est la plus petite (au sens de l'inclusion) relation binaire sur $E$ contenant
-R (R \subseteq R^{*}) et qui est réflexive et transitive.
+($R \subseteq E^2$) est la plus petite (au sens de l'inclusion) relation binaire sur $E$ contenant
+$R$ ($R \subseteq R^{*}$) et qui est réflexive et transitive.
 
-\paragraph{Remarque} $R^{*} = { (e, e') \in E^{2} | \text{il existe un chemin dans R de début 
-                     e et de fin e'}}$
+\paragraph{Remarque} $R^{*} = { (e, e') \in E^{2} | \textrm{il existe un chemin dans R de début e et de fin e'}}$
 
 \paragraph{Algorithme 1}
 %%% FIXME: trouver bonne façon de présenter un algo
@@ -563,7 +562,7 @@ Initialisation : $R^{*} = R$
 Pour $i$ de 1  $n$ faire :
 
   Pour chaque i-uplet ($e_{j1}, e_{j2}, \dots, e_{jn}) \in E^i$ faire
-     si (e_{j1}, e_{j2}, ..., e_{jn}) est un chemin relativement à R alors
+     si ($e_{j1}, e_{j2}, \dots, e_{jn}$) est un chemin relativement à R alors
      $R^{*} = R^{*} \cup { (e_{j1}, e_{jn})}$
 
 
@@ -574,13 +573,13 @@ Donnée : $R \subseteq E^{2}$ ($ E = {e_1, e_2, \dots, e_n}$)
 
 Résultat : $R^{*}$ (...)
 
-Initialisation : $R^{*} = {(e_i,e_i)\mid i\in \llbrakcet 1,n\rrbracket}$ (réflexivité)
+Initialisation : $R^{*} = {(e_i,e_i)\mid i\in \llbracket 1,n\rrbracket}$ (réflexivité)
 
 Pour $j = 1$ à $n$ faire
 
   Pour $i = 1$ à $n$ faire
 
-    Pour $k = 1= à =n= faire
+    Pour $k = 1=$ à $=n=$ faire
 
       Si $(e_i, e_j)\in R^{*}$ et $(e_j, e_k)\in R^{*}$ et $(e_i,e_k) \not\in R^{*}$
       alors $R^{*} = R^{*}\cup \{(e_i,e_k)\}$
