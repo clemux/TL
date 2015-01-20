@@ -470,12 +470,15 @@ f(i',j') = f(0, i+1) = \Sigma^{i+1}_{k=0)}k+0 = \big(\Sigma^i_{k=0)} k\big)+i+1
 Soit $A\subseteq \mathbb{N}$ tel que :
 \begin{enumerate}
 \item $0\in A$ et
-\item $\forall n \in \mathbb{N}, \text{ si } \llbracket 0,n\rrbracket \subseteq A$ alors $n+1\in A$
+\item $\forall n \in \mathbb{N}, \text{ si } \llbracket 0,n\rrbracket
+\subseteq A$ alors $n+1\in A$
 \end{enumerate}
 Alors : $A=\mathbb{N}$.
 \paragraph{Preuve :} supposons que $A\neq \mathbb{N}$
 
-Soit $n_0$ le plus petit élément de $\mathbb{N}\setminus A$. Donc $n_0\neq 0$ et $\llbracket 0,n_0-1\rrbracket \subseteq A$, donc $n_0\in A$, ce qui est absurde. Donc : $A=\mathbb{N}$.
+Soit $n_0$ le plus petit élément de $\mathbb{N}\setminus A$.
+Donc $n_0\neq 0$ et $\llbracket 0,n_0-1\rrbracket \subseteq A$, donc $n_0\in A$,
+ce qui est absurde. Donc : $A=\mathbb{N}$.
 
 
 
@@ -487,7 +490,8 @@ Soit $n_0$ le plus petit élément de $\mathbb{N}\setminus A$. Donc $n_0\neq 0$ 
 %tibo : corrigé, c'est au même niveau que "Principe d'induction"
 \item Principe des tiroirs et des pigeons. 
 
-Soient T et P deux ensembles finis tels que $card(P) > card(T)$  alors il n'existe pas de fonction injective de P dans T.
+Soient T et P deux ensembles finis tels que $card(P) > card(T)$  alors il
+n'existe pas de fonction injective de P dans T.
 
 %%% EXO: démontrer
 
@@ -505,29 +509,37 @@ Preuve : Supposons qu'il existe $e \in E$ tel que $ D(R) = R(e)$.
 
 Deux cas sont possibles :
 \begin{enumerate}
-\item $e \in R$ ce qui implique $(e, e) \in R$ ce qui implique que $e \not\in D(R)$ et donc $e \not\in R(e)$ ce qui est absurde.
+\item $e \in R$ ce qui implique $(e, e) \in R$ ce qui implique que $e \not\in 
+D(R)$ et donc $e \not\in R(e)$ ce qui est absurde.
 
-\item $e \not\in R(e)$ ce qui implqiue que $(e,e) \not\in R$ ce qui implique $e \in D(R)$ et donc $e \in R(e)$ ce qui est absurde.
+\item $e \not\in R(e)$ ce qui implqiue que $(e,e) \not\in R$ ce qui implique $e
+\in D(R)$ et donc $e \in R(e)$ ce qui est absurde.
 
 \end{enumerate}
 
-Donc l'hypothèse de départ est absurde, et donc $D(R) \not\in R(e)$ pour tout $e \in E$.
+Donc l'hypothèse de départ est absurde, et donc $D(R) \not\in R(e)$ pour tout $e
+\in E$.
 \end{enumerate}
 
 \paragraph{Propriété}
-Soit $R$ une relation binaire sur un ensemble fini $E (R\subseteq E^2)$ tel que $n=card(E)$, et soient 
-$e, e'\in e$. Si il existe un chemin $C$ dans $R$ de début $e$ et de fin $e'$, alors il existe 
+Soit $R$ une relation binaire sur un ensemble fini $E (R\subseteq E^2)$ tel que
+$n=card(E)$, et soient 
+$e, e'\in e$. Si il existe un chemin $C$ dans $R$ de début $e$ et de fin $e'$,
+alors il existe 
 nécéssairement un chemin de début $e$ et de fin $e'$ et de longeur $l \leq n-1$.
 
 \textbf{Preuve :}(rappel)
 
-Soit $C = e_0, e_1, \dots, e_m$ un chemin de début $e$, de fin $e'$ et de longueur $m$. Alors, 
+Soit $C = e_0, e_1, \dots, e_m$ un chemin de début $e$, de fin $e'$ et de
+longueur $m$. Alors, 
 deux cas sont possibles :
 
 \begin{enumerate}
   \item $m \leq n-1$ et dans ce cas, le chemin cherché est $C$.
-  \item $m \geq n \Rightarrow m+1 \geq n+1$. Donc, il existe $0\leq i < j < m$ tel que $e_i = e_j$.
-  Posons $C' = $e_0, e_1, \dots, e_i, e_{j+1}, \dots, e_m$ est un chemin de début $e$ et de fin $e'$
+  \item $m \geq n \Rightarrow m+1 \geq n+1$. Donc, il existe $0\leq i < j < m$
+  tel que $e_i = e_j$.
+  Posons $C' = $e_0, e_1, \dots, e_i, e_{j+1}, \dots, e_m$ est un chemin de
+  début $e$ et de fin $e'$
   plus court que $C$.
 \end{enumerate}
 
