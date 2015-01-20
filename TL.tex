@@ -2,9 +2,10 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[francais]{babel}
+%\usepackage[french]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{stmaryrd}
 \usepackage{tikz}
 
 \title{Théorie des langages}
@@ -21,9 +22,11 @@
 
 \section*{Quelques définitions}
 
-\paragraph{Langage} On appelle \textit{langage} tout ensemble de mots. Il existe deux façons de définir un langage : par extension ou par intention Le mot vide est noté $\Sigma$
+\paragraph{Langage} On appelle \textit{langage} tout ensemble de mots.
+Il existe deux façons de définir un langage : par extension ou par intention Le mot vide est noté $\Sigma$
 
-\paragraph{Alphabet} On appelle \textit{alphabet} tout ensemble fini (non vide) de symboles.
+\paragraph{Alphabet} On appelle \textit{alphabet} tout ensemble fini (non vide)
+de symboles.
 
 
 \paragraph{Grammaire} 
@@ -44,7 +47,9 @@ Mots : 0, 1, 01, 00001.
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-classes de langages & reconnaissance d'un mot & génération d'un mot \\ \hline \hline
+classes de langages & reconnaissance d'un mot & génération d'un mot \\
+\hline
+\hline
 langage régulier  & automates finis & grammaire régulière \\ \hline
 langage algébrique & automates à pile & grammaire algébrique \\ \hline
 langage récursif & machine de Turing & grammaires sans contrainte \\
@@ -52,7 +57,8 @@ langage récursif & machine de Turing & grammaires sans contrainte \\
 \end{tabular}
 \end{center}
 
-Ces classes de langage sont présentées du plus restreint au plus large, ou plus formellement :
+Ces classes de langage sont présentées du plus restreint au plus large, ou
+plus formellement :
 \[
 \text{langages réguliers}
 \;\subseteq\text{langages algébriques}
@@ -112,7 +118,8 @@ A=B \Leftrightarrow A\subseteq B \text{ et } B\subseteq A
 
 Pour des $n$-uplets, l'égalité devient a :
 \[
-(e_1,e_2,\dots,e_n)=(f_1,f_2,\dots,f_n)\Leftrightarrow e_1=f_1,e_2=f_2,\dots,e_n=f_n
+(e_1,e_2,\dots,e_n)=(f_1,f_2,\dots,f_n)\Leftrightarrow e_1=f_1,e_2=f_2,
+\dots,e_n=f_n
 \]
 
 \subsection{Définition}
@@ -141,7 +148,8 @@ Autrement dit $R \subseteq E_1 \times E_2 \times \dots \times E_n$.
 
 Pour $n = 2$, R est dite une relation binaire.
 
-\paragraph{Notation} Si $E = E_1 = E_2 = \dots = E_n$, alors $E_1 \times \dots \times E_n$ est noté $E^{n}$.
+\paragraph{Notation} Si $E = E_1 = E_2 = \dots = E_n$, alors $E_1 \times \dots
+\times E_n$ est noté $E^{n}$.
 
 
 
@@ -163,7 +171,8 @@ fonctionnelle $R$. $E_1\times E_2\times\dots E_{n-1}$ est appelé le
 domaine (ou ensemble de départ) de $f_R$ et $E_n$ est appelé
 l'ensemble d'arrivée de $f_R$.
 
-\paragraph{Notation} soit $R$ une relation fonctionne sur $E_1\times\dots\times E_{n-1}\times E_n$. On note :
+\paragraph{Notation} soit $R$ une relation fonctionne sur $E_1\times\dots\times
+E_{n-1}\times E_n$. On note :
 \[
 f_R : E_1\times\dots\times E_{n-1} \longmapsto E_n
 \]
@@ -194,11 +203,13 @@ Si $f_R$ est bijective, alors $\big((f_R)^{-1}\big)^{-1} = f_R$
 
 \item Soient $R_1 \subseteq A\times B$ et $R_2 \subseteq B\times C$
   deux relations binaires.
-\[R_1 \circ R_2 = \{(a,c) \in A \times C \mid \exists b\in B \text{ tel que }(a,b)\in R_1 \text{ et } (b,c)\in R_2\} \]
+\[R_1 \circ R_2 = \{(a,c) \in A \times C \mid \exists b\in B
+\text{ tel que }(a,b)\in R_1 \text{ et } (b,c)\in R_2\} \]
 $R_1 \circ R_2$ est la composition de $R_1$ et de $R_2$.
 \end{itemize}
 
-\paragraph{Propriété :} soit $R$ une relation fonctionnelle sur $A\times B$ telle que $f_R$ est bijective. Alors :
+\paragraph{Propriété :} soit $R$ une relation fonctionnelle sur $A\times B$
+telle que $f_R$ est bijective. Alors :
 
 \begin{itemize}
 \item $R\circ R^{-1} = \{(a,a)\mid a\in A\}$
@@ -222,13 +233,16 @@ Soir $R$ une relation binaire sur $A^2 (R\subseteq A^2)$.
 
 \item $R$ est dite antisymétrique si $\forall a, b\in A, (a,b)\in R$
   et $a\neq b \Rightarrow (b,a)\not\in R$
-\item $R$ est une relation d'ordre si $R$ est à la fois réflexive, antisymétrique et transitive.
-\item $R$ est une relation d'ordre total si $R$ est une relation d'ordre et pour tout $a, b\in A$, si $(a,b) \not\in R$, alors $(b,a)\in R$
+\item $R$ est une relation d'ordre si $R$ est à la fois réflexive,
+antisymétrique et transitive.
+\item $R$ est une relation d'ordre total si $R$ est une relation d'ordre et pour
+tout $a, b\in A$, si $(a,b) \not\in R$, alors $(b,a)\in R$
 \end{itemize}
 
 \subsection{Représentation de relations}
 
-Soit $A = \{1,2,3\}$ un ensemble, et la relation $R = \{(1,2),(1,3),(2,3)\}$ une relation sur $A$. On peux représenter cette relation sous plusieurs formes :
+Soit $A = \{1,2,3\}$ un ensemble, et la relation $R = \{(1,2),(1,3),(2,3)\}$
+une relation sur $A$. On peux représenter cette relation sous plusieurs formes :
 
 \paragraph{Forme matricielle}
 %\[
@@ -270,7 +284,7 @@ Soit $R$ une relation d'équivalence $A \times A$ ($A^{2}$) et soit $a
 \begin{itemize}
 
 %%%% CHECKME vérifier les accolades
-\item $[a]_{R} = { b \in A | (a,b) \in R} }$ est la classe de $A$
+\item $[a]_\{R\} = \{ b \in A \mid (a,b) \in R\} \}$ est la classe de $A$
 relative à la relation d'équivalence $R$
 
 \item $A/R = {[a]_{R} | a \in A}$ est le quotient de $A$ par $R$
@@ -313,6 +327,285 @@ transitive alors $(a, a') \in R$.
 
 Et donc $\forall c \in [a']_{R}$ on a $(a', c) \in R$ et donc par
 transitivité $(a,c) \in R$ et donc $c \in [a]_{R}$.
+
+
+Soit $\Pi$ une partition de $A$
+
+$\pi = { E_i \mid i \in I }$
+
+\begin{enumerate}
+\item $A = \bigcup_{i \in I) E_i}$
+\item $E_1 \cap E_j = \emptyset$ pour tout $i, j \in I$ et $i\neq j$
+\item $E_i \neq \emptyset$ pour tout $i \in I$
+\end{enumerate}
+
+$\Pi \leftrightarrow R_{\Pi} \rightsquigarrow (a,b)\in R_{\Pi} \text{ ssi } \exists i \in I \text{ tel que } a, b \in E_i$
+
+
+\paragraph{Définition}
+
+Soit $R$ une relation binaire sur un ensemble $A (R \subseteq A^2)$ la suite $x_0, x_1, ..., x_n$ d'éléments de $A$ est dite un chemin de $R$ si $(x_i, x_{i+1}) \in \forall 0 \leq i < n$.
+
+\begin{itemize}
+\item $x_0$ est appelé le début du chemin $C$
+\item $x_n$ est appelé la fin du chemin $C$
+\item $n$ est appelé la longueur du chemin $C$
+\end{itemize}
+
+\section{Cardinalité d'un ensemble}
+
+\subsection{Définitions}
+
+Deux ensembles $E_1$ et $E_2$ sont dits de même cardinal s'il existe une bijection
+$f : E_1 \mapsto E_2$
+
+Soient $E_1$ et $E_2$ deux ensembles. On dit que le cardinal de $E_1$ est strictement inférieur
+à celui de $E_2$ s'il existe une fonction injective $f : E_1 \mapsto E_2$ et il n'existe pas de
+bijection de $E_1$ à $E_2$
+
+Un ensemble E est dit fini s'il existe un entier $n \in \mathbb{N}$ tel qu'il y a une bijection
+$f : \llbracket 1, n \rrbracket \mapsto E$. % c'est quoi l/r brace? -Crochets?
+
+Dans ce cas on dit que $E$ est de cardinal $n$. % De plus n est unique (hein?)
+
+Un ensemble E est dit infini dénombrable s'il a le même cardinal que $\mathbb{N}$ % |N
+(il existe une bijection $f : N \mapsto E$).
+
+\paragraph{Exemples}
+\begin{itemize}
+
+
+\item{$\mathbb{Z}$ est un ensemble infini dénombrable}
+
+\item{$\mathbb{Q}$ est un ensemble infini dénombrable}
+
+\item{$\mathbb{N}$ est un ensemble infini dénombrable}
+
+\item{$\mathbb{N}^*$ est un ensemble infini dénombrable}
+
+
+\item{:$\mathbb{N}^2  \rightarrow \mathbb{N}$
+
+f(i,j) = $(\sum_{k=1}^{i+j} k) + i = (i+j)(i+j+1)/2 + i$ est une bijection de $\mathbb{N}^2  \text{ dans } \mathbb{N}$}
+
+\item{$Q^{+} = {i/j | (i,j) \in N\times N^{*} \text{ et }\text{ pgcd}(i, j) = 1}$}
+
+\item{$Q = Q^{+} \cup (- Q^{+})$}
+
+\item{$Q^{+} = \{ -q | q \in Q^{+}\}$}
+
+\end{itemize}
+
+
+
+\subsection{Propriétés}
+
+Soit E un ensemble alors il n'existe pas de bijection entre $E$ et $\mathcal{P}(E)$.
+
+En fait, le cardinal de $E$ est strictement inférieur au cardinal de $\mathcal{P}(E)$.
+
+
+\paragraph{Preuve}
+
+Soit $f : E \mapsto \mathcal{P}(E), f(e) \mapsto {e}$
+
+Par construction, $f$ est injective.
+
+Montrons qu'il n'y a pas de bijection entre $E$ et $\mathcal{P}(E)$.
+
+Suppons qu'il existe une bijection $g : E \mapsto \mathcal{P}(E)$. Posons $A = { e \in E \mid e \not\in g(e)} \in P(E)$.
+
+Comme $g$ est symétrique et $A \in \mathcal{P}(E)$ alors il exise $e_0 \in E$ tel que $g(e_0) = A$.
+
+Deux cas sont possibles.
+
+\begin{enumerate}
+\item $e_0 \in A$ implique $e_0 \not\in g(e_0)$ donc $e_0 \not\in A$ ce qui est absurde.
+\item $e_0 \not\in A$ ce qui implique $e_0 \in g(e_0)$ donc $e_0 \in A$ ce qui est absurde.
+\end{enumerate}
+
+Donc l'hypothèse de départ est absurde, et donc il n'y a pas de bijection entre $E$ et $\mathcal{P}(E)$.
+
+
+
+$R$ et $R^2$ ont le même cardinal 
+$R$ et $P(N)$ ont le même cardinal 
+
+% mux> < is weird <, plz adjust for actual symbol  (this english is no real english either)
+% mux> c'est \prec je crois
+$E < \mathcal{P}(E) < \mathcal{P}(\mathcal{P}(E)) < .........$
+$N < \mathcal{P}(N) < \mathcal{P}(\mathcal{P}(\mathbb{N})) < ...$
+
+% what is exercise ?
+% en bas à gauche dude
+
+
+
+
+%
+$f : N^2 \mapsto N$
+$f(i,j) = (\sum^{i+j}_{k=1}) + i$
+
+Montrons que $f$ est surjective:
+
+$f(0, 0) = 0$
+
+Soit $n\leq 0$. Supposons qu'il existe $(i,j) \in \mathbb{N}^2$ tel que $f(i,j) = n$
+et montrons que cela implique qu'il existe $(i',j')\in \mathbb{N}^2$ tel que $f(i,j) = n+1$
+\[
+f(i,0) = n = \Sigma^i_{k=1)}k+i
+i'=0, j'=i+1
+f(i',j') = f(0, i+1) = \Sigma^{i+1}_{k=0)}k+0 = \big(\Sigma^i_{k=0)} k\big)+i+1
+\qquad = f(0,i)+1 = n+1
+\]
+
+\begin{center}
+\textit{faire la suite en exercice}
+\end{center}
+
+\subsection{Méthodes de raisonnement}
+\begin{enumerate}
+\item Principe d'induction
+
+Soit $A\subseteq \mathbb{N}$ tel que :
+\begin{enumerate}
+\item $0\in A$ et
+\item $\forall n \in \mathbb{N}, \text{ si } \llbracket 0,n\rrbracket \subseteq A$ alors $n+1\in A$
+\end{enumerate}
+Alors : $A=\mathbb{N}$.
+\paragraph{Preuve :} supposons que $A\neq \mathbb{N}$
+
+Soit $n_0$ le plus petit élément de $\mathbb{N}\setminus A$. Donc $n_0\neq 0$ et $\llbracket 0,n_0-1\rrbracket \subseteq A$, donc $n_0\in A$, ce qui est absurde. Donc : $A=\mathbb{N}$.
+
+
+
+
+
+
+
+% CHECKME: structure
+%tibo : corrigé, c'est au même niveau que "Principe d'induction"
+\item Principe des tiroirs et des pigeons. 
+
+Soient T et P deux ensembles finis tels que $card(P) > card(T)$  alors il n'existe pas de fonction injective de P dans T.
+
+%%% EXO: démontrer
+
+\item Principe de diagonalisation.
+
+Soit R une relation binaire sur un ensemble E ($R \subseteq E^2$)
+
+Notation : Pour tout $e \in E$, posons R(e) = ${e' \in E | (e, e') \in R}$.
+
+$D(R) = {e \in E | (e, e') \not\in R}$.
+
+Alors $D(R) \neq R(e)$ pour tout $e\in E$.
+
+Preuve : Supposons qu'il existe $e \in E$ tel que $ D(R) = R(e)$.
+
+Deux cas sont possibles :
+\begin{enumerate}
+\item $e \in R$ ce qui implique $(e, e) \in R$ ce qui implique que $e \not\in D(R)$ et donc $e \not\in R(e)$ ce qui est absurde.
+
+\item $e \not\in R(e)$ ce qui implqiue que $(e,e) \not\in R$ ce qui implique $e \in D(R)$ et donc $e \in R(e)$ ce qui est absurde.
+
+\end{enumerate}
+
+Donc l'hypothèse de départ est absurde, et donc $D(R) \not\in R(e)$ pour tout $e \in E$.
+\end{enumerate}
+
+\paragraph{Propriété}
+Soit $R$ une relation binaire sur un ensemble fini $E (R\subseteq E^2)$ tel que $n=card(E)$, et soient 
+$e, e'\in e$. Si il existe un chemin $C$ dans $R$ de début $e$ et de fin $e'$, alors il existe 
+nécéssairement un chemin de début $e$ et de fin $e'$ et de longeur $l \leq n-1$.
+
+\textbf{Preuve :}(rappel)
+
+Soit $C = e_0, e_1, \dots, e_m$ un chemin de début $e$, de fin $e'$ et de longueur $m$. Alors, 
+deux cas sont possibles :
+
+\begin{enumerate}
+  \item $m \leq n-1$ et dans ce cas, le chemin cherché est $C$.
+  \item $m \geq n \Rightarrow m+1 \geq n+1$. Donc, il existe $0\leq i < j < m$ tel que $e_i = e_j$.
+  Posons $C' = $e_0, e_1, \dots, e_i, e_{j+1}, \dots, e_m$ est un chemin de début $e$ et de fin $e'$
+  plus court que $C$.
+\end{enumerate}
+
+\paragraph{Définition}
+
+La clôture réflexive et transitive $R^{*}$ d'une relation binaire $R$ sur un ensemble E
+($R \subseteq E^2) est la plus petite (au sens de l'inclusion) relation binaire sur $E$ contenant
+R (R \subseteq R^{*}) et qui est réflexive et transitive.
+
+\paragraph{Remarque} $R^{*} = { (e, e') \in E^{2} | \text{il existe un chemin dans R de début 
+                     e et de fin e'}}$
+
+\paragraph{Algorithme 1}
+%%% FIXME: trouver bonne façon de présenter un algo
+Donnée : $R \subseteq E^2$
+
+Résultat : $R^{*}$ (la clôture réflexive et transitie de $R$)
+
+Initialisation : $R^{*} = R$
+
+Pour $i$ de 1  $n$ faire :
+
+  Pour chaque i-uplet ($e_{j1}, e_{j2}, \dots, e_{jn}) \in E^i$ faire
+     si (e_{j1}, e_{j2}, ..., e_{jn}) est un chemin relativement à R alors
+     $R^{*} = R^{*} \cup { (e_{j1}, e_{jn})}$
+
+
+\paragraph{Algorithme 2}
+%% EXO vérifier que l'algorithme est correct 
+
+Donnée : $R \subseteq E^{2}$ ($ E = {e_1, e_2, \dots, e_n}$)
+
+Résultat : $R^{*}$ (...)
+
+Initialisation : $R^{*} = {(e_i,e_i)\mid i\in \llbrakcet 1,n\rrbracket}$ (réflexivité)
+
+Pour $j = 1$ à $n$ faire
+
+  Pour $i = 1$ à $n$ faire
+
+    Pour $k = 1= à =n= faire
+
+      Si $(e_i, e_j)\in R^{*}$ et $(e_j, e_k)\in R^{*}$ et $(e_i,e_k) \not\in R^{*}$
+      alors $R^{*} = R^{*}\cup \{(e_i,e_k)\}$
+
+
+\paragraph{Clôtures d'un ensemble par des relations}
+
+\begin{enumerate}
+  \item Soient E un ensemble, $n \in \mathbb{N}^{*}$ et $R \subseteq E^{n+1}$
+  une relation d'arité $n+1$ sur E.
+  
+  Un sous-ensemble $F \subseteq E$ est dit clos (fermé) relatiement à $R$ si pour
+  tout $(e_1, e_2, \dots, e_n) \in R$, $e_1 \in F$, $e_2 \in F$, ..., $e_n \in F$
+  alors $e_{n+1} \in F$.
+
+  \item Plus généralement, soit $E$ un ensemble et $R_1$, $\dots$, $R_k$ des relations
+  sur E ($R_i \subseteq E^{n_i}$).
+
+  Un sous-ensemble $F \subseteq E$ est dit clos (fermé) relativement aux relations 
+  $R_1, \dots, R_k$ s'il est clos relativement à chacun des relations $R_i$ pour
+  $1 \leq i \leq k$.
+\end{enumerate}
+
+
+\paragraph{Problème}
+%%% EXO (?)
+
+$E, R_1, \dots, R_k$ tels que $R_i \subseteq E^{n_i}$ pour $1 \leq i \leq k$
+
+$E' \subseteq E$
+
+Construire le plus petit ensemble $F$ contenant $E'$ tel que $F$ est clos
+relativement à $R_1, \dots, R_k$.
+
+$F$ est appelé la fermeture de $E'$ relativement à $R_1, R_2, \dots, R_k$
+
+
 
 
 \end{document}
