@@ -14,11 +14,10 @@ http://detexify.kirelabs.org/classify.html
 Pour dessiner des automates, on pourra utiliser ça :
 http://madebyevan.com/fsm/
 
-Commentaires
-------------
+## Commentaires
 
-tags
-~~~~
+### tags
 
-FIXME: erreur à corriger
-CHECKME: erreur potentielle à vérifier
+ - FIXME : erreur à corriger
+ - CHECKME : erreur potentielle à vérifier
+ - EXO : exercice pour le cours suivant
