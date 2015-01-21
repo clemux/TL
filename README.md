@@ -7,6 +7,13 @@ cas de conflit.
 
 pour stmaryrd.sty -> c'est dans `texlive-math-extra`
 
+Si vous ne connaissez pas un symbole, vous pouvez le dessiner à la
+souris avec cet outil magique
+http://detexify.kirelabs.org/classify.html
+
+Pour dessiner des automates, on pourra utiliser ça :
+http://madebyevan.com/fsm/
+
 Commentaires
 ------------
 
