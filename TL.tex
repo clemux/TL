@@ -413,7 +413,9 @@ Par construction, $f$ est injective.
 
 Montrons qu'il n'y a pas de bijection entre $E$ et $\mathcal{P}(E)$.
 
-Suppons qu'il existe une bijection $g : E \mapsto \mathcal{P}(E)$. Posons $A = { e \in E \mid e \not\in g(e)} \in P(E)$.
+Suppons qu'il existe une bijection $g :
+E \mapsto \mathcal{P}(E)$.
+Posons $A = { e \in E \mid e \not\in g(e)} \in P(E)$.
 
 Comme $g$ est symétrique et $A \in \mathcal{P}(E)$ alors il exise $e_0 \in E$ tel que $g(e_0) = A$.
 
@@ -549,7 +551,7 @@ La clôture réflexive et transitive $R^{*}$ d'une relation binaire $R$ sur un e
 ($R \subseteq E^2$) est la plus petite (au sens de l'inclusion) relation binaire sur $E$ contenant
 $R$ ($R \subseteq R^{*}$) et qui est réflexive et transitive.
 
-\paragraph{Remarque} $R^{*} = { (e, e') \in E^{2} | \textrm{il existe un chemin dans R de début e et de fin e'}}$
+\paragraph{Remarque} $R^{*} = { (e, e') \in E^{2} | \exists \textrm {chemin dans R de début e et de fin e'}}$
 
 \paragraph{Algorithme 1}
 %%% FIXME: trouver bonne façon de présenter un algo
@@ -591,7 +593,7 @@ Pour $j = 1$ à $n$ faire
   \item Soient E un ensemble, $n \in \mathbb{N}^{*}$ et $R \subseteq E^{n+1}$
   une relation d'arité $n+1$ sur E.
   
-  Un sous-ensemble $F \subseteq E$ est dit clos (fermé) relatiement à $R$ si pour
+  Un sous-ensemble $F \subseteq E$ est dit clos (fermé) relativement à $R$ si pour
   tout $(e_1, e_2, \dots, e_n) \in R$, $e_1 \in F$, $e_2 \in F$, ..., $e_n \in F$
   alors $e_{n+1} \in F$.
 
@@ -616,7 +618,280 @@ relativement à $R_1, \dots, R_k$.
 
 $F$ est appelé la fermeture de $E'$ relativement à $R_1, R_2, \dots, R_k$
 
+\paragraph{Propiété}
+Soient $R_1,..., R_n$ des relations sur un ensemble $E$
+
+% \subseteq ->
+et soit $E' \subseteq E$. Alors il existe un unique sous-ensemble minimal, au 
+sens de l'inclusion tel que $F'$ est inclus dans $F$ et $F$ est fermé (clôs) 
+relativement aux relations $R_1, R_2,\dots, R_n$.
+
+\paragraph{Preuve}
+
+Comme $R_1, R_2, \dots, R_n$ sont des relations sur $E$, alors $E$ est clos relativement à
+$R_1, R_2, \dots, R_n$.
+
+$S$ est l'ensemble de tous les sous ensembles de $E$ qui contiennent $E'$ et qui sont
+fermés relativement à $R_1, R_2, ..., R_n$
+alors $ {A \subseteq E \mid E'\subseteq A}$ est fermé relativement à $R_1, R_2,\dots, R_n$
+
+On a  $E \in S$ donc $S$ est non-vide.
+
+Posons $B = \bigcup_{A\in S}$
+
+On a donc : 
+\begin{enumerate}
+  \item $E \subseteq B$
+  \item %CHECKME : (c'est bien un i?) 
+  Si $(a1, a_i, a_{i+1})$ pour $1 \leq i \leq k$
+  et si $a_1, ..., a_k \in B \text{ alors } a_{k+1} \in A$
+\end{enumerate}
+
+\paragraph{Algorithme : Clotûre}
+
+Donnée : $E = {e_1, e_2, \dots, e_n}$
+$R_1$ dans $E^{d_1+1}$, $R_2$ dans $E^{d_2+1}, \dots, E^{d_n + 1}$,
+
+$E'$ dans $E$
+
+Résultat : $F$ est la fermeture de $E'$ relativement aux relations $R_1, R_2, \dots, R_n$
+
+$F=E'$
+
+tant qu'il existe un $i$ de ${1, \dots, k}$ et un $(a_1, a_2, \dots , a_i)$
+
+On a 
+% FIXME
+
+\paragraph{Exercice}
+
+$R \subseteq E^2 -> R^{*}$
+
+$R_1 = { (e,e) \mid (e,e) \in E^2}$
+$R_2 = { ((e_1,e_2),(e_2,e_3),(e_1,e_3))  \in E^2 \times E^2 \times E^2 }$
+
+%%%%
+%%%% pas complet parce que c9 déconne :(
+%%%% cette partie est sur le drive
 
 
+\chapter{Alphabets, mots et langages}
+
+\section{Définitions}
+
+\subsection{Alphabet}
+
+Un alphabet est un ensemble de $\Sigma$ de symboles (figures) non vide et fini.
+
+Les élémentes de l'alphabet $\Sigma$ sont appelés des lettres de l'alphabet.
+
+\paragraph{Exemples}
+
+\begin{itemize}
+\item $R = {A, B, C, ..., Z}$
+\item $B = {0, 1}$
+\end{itemize}
+
+\subsection{Mot}
+Un mot sur un alphabet sigma est une suite finie d'éléments de sigma.
+
+$\mid m \mid$ est la longueur du mot $m$ sur l'alphabet $\Sigma$ c'est-à-dire le nombre d'éléments de
+la suite qui compose le mot $m$.
+
+\paragraph{Exemple}
+
+$A, A, B, C, B, E$ est un mot de longueur $6$ sur l'alphabet $R$.
+
+La suite vide (sans aucun élément) est appelée $e$.
+
+Le mot vide est noté dans la suite $\epsilon$.
+
+% TODO remplacer les |x| par le bon symbole
+Si $m$ est un mot sur l'alphabet $\Sigma$ et si $1 < i \leq \mid m \mid$,
+alors $m(i)$ est le $i$-eme élément de la suite $m$
+
+Autrement dit $m = m(1), m(2), \dots, m(n)$.
+
+\subsection{$\Sigma^{*}$}
+
+Soit $\Sigma$ un alphabet, $\Sigma^{*}$ est l'ensemble de tous les mots de
+l'alphabet $\Sigma$.
+
+\paragraph{Exemple}
+
+$B^{*} = { \epsilon, 0, 1, 00, 01, 10, 11, 000, \dots}$ est l'ensemble de tous
+les mots de l'alphabet $B$. % cf. plus haut
+
+\paragraph{Remarque}
+$\Sigma^{*}$ est un ensemble infini dénombrable.
+
+% bla bla pour n lettres on a sigma^n mots possibles
+
+Un langage $L$ sur un alphabet $\Sigma$ est un sous ensemble de $\Sigma^{*}$.
+
+% joli P, je me souviens plus comment on fait - ah ok
+ $\mathcal{P} (\Sigma^{*}) $ est l'ensemble de tous les langages sur l'alphabet
+ $\Sigma$.
+ 
+ $\Sigma = \beta = {0,1}$
+$L_1 = {}, L_2 = {\Sigma}$
+$L_3 = {0,1,11}$
+$L_4 = {0,00,01,000,001,010 ... }$
+
+\subsection{}
+
+Sur $\Sigma *$ on définit l'opération de concaténation de la façon suivante :
+
+Soit $m' \in \Sigma^{*}$.
+
+Si $m = a1, a2, ..., an$ et $m' = a'1, a'2, ..., a'n$,
+alors $m'' = m . m' $ % .... ?
+
+Autrement dit $ \mid m'' \mid  = \mid m \mid +  \mid m' \mid $
+et m''(i) = { m(i) pour i <= i <|m|
+m''(i - |m|) pour m+1 <= i <= |m| + |m'|
+%% i have no idea what I'm writin' -lulz
+
+\section{Propriétés}
+
+Soit $\sigma$ un alphabet
+
+1. Pour tout  m de $\Sigma^{*}$ on a :
+
+$m . \epsilon = \sigma . m = m$
+$\sigma$ est l'élément neutre de l'opération
+
+2. pour tout m, m', m'' de $\sigma*{*}$on a : m . (m' . m'') = (m . m') . m''
+
+. est opération associative
+
+\section{Définitions}
+% chaque 1. est un subsection
+
+Soient m, m' de sigma *, a de sigma et i de |N
+
+1. On dit que m' est un sous-mot de m s'il existe u, v de $\sigma^{*}$ tels que
+
+\[
+  m = u . m' . v
+\]
+
+2. On dit que m' est suffixe de m s'il existe u de $\sigma^{*}$ tel que
+m = u . m' . % ?
+
+3. On dit que m' est préfixe de m s'il existe v de sigma etoile tel que
+m = m'.v
+
+\section{Propriétés}
+
+\subsection{~}
+
+$m^0 = \epsilon$
+
+$m^ = m^i . m$ pour i>=0
+
+\subsection{Mot miroir}
+
+% joli R (mais pas l'ensemble des réels)
+%-JugglerMurdoc : je crois que Mathcab c'est pas dans l'ensemble des réels
+%ce'est juste cursif
+$\epsilon^{R} = \epsilon$
+
+$(a .m)^{R} = m^{R} . a$
+
+$m^R$ est appelé le 
+% emphase
+mot inverse
+%
+du mot m (ou /mot miroir/) 
+
+$010101^R = 101010$
+
+\section{Opérations sur les langages}
+
+Soient $\sigma$ un alphabet et L1, L2 (L1, L2 inclus dans $\sigma^{*}$)
+deux langages.
+
+\subsection{Concaténation}
+
+$L1 . L2 = {m1 . m2 | m1 de L1, m2 de L2}$
+
+\paragraph{Exemple}
+
+L1 = {01, 10}
+L2 = {00, 10}
+L1 . L2 = {0100, 0110, 1000, 1010}
+
+
+\subsection{Opération de Kleene}
+
+L2* = { m1 . m2 . mk | k de |N et m1, m2, ..., mk de L1}
+
+\subsection{~}
+
+$L_1^{+} = L_1^{*} \ {\epsilon}$
+
+
+\section{Représentations finies des langages}
+
+\subsection{Expression rationnelle}
+
+Soit $\Sigma$ un alphabet.
+
+% entourer les opérateurs pour mieux les distinguer
+Posons $\Sigma_d = \Sigma \cup {\emptyset, *, (, ), \cup}$
+
+\subsection{Définition}
+
+Une expression rationnelle sur $\Sigma$ est un mot sur l'alphabet $\Sigma . d$
+obtenu en respectant les règles suivantes.
+
+
+\begin{enumerate}
+
+  \item $\emptyset$ et $a \in \sigma$ sont des expressions régulières pour 
+  tout $a \in \Sigma$
+  
+  \item Si $\alpha$ et $\beta$ sont des expressions régulières alors 
+  $(\alpha \beta)$ est une expression régulière%--> Parenthèses entourées!!
+  
+  \item Si alpha et beta sont des expressions regulieres alors
+  \[ 
+    ( \alpha \cup \beta ) est une expression régulière
+  \]
+  \item Si $\alpha est une expression régulière alors \alpha * $ % * entourée
+  est une expression régulière.
+  \item Seuls les mots de $\Sigma^{*}_{d}$ qui sont construits en utilisant les
+  règles $R_1, R_2, R_3 et R_4$ sont des expressions régulières.
+\end{enumerate}
+
+\section{Langage associé à une expression rationnelle}
+
+Soit e une expression rationnelle sur un alphabet Sigma.
+
+Le langage L(e) % joli L
+décrit par l'expression rationnelle e est obtenu en interprétant les caractères
+de $\Sigma_d$ de la façon suivante :
+\begin{enumerate}
+\item $L(\emptyset) = \emptyset = {}$
+
+\item L(a)= { a} pour tout a $\in \Sigma$
+
+% aucune idée des symboles utilisés ici autour de alpha et beta
+%'Parenthèses avec barre à l'intérieur'
+\item  L(alpha, beta) = L(alpha) . L(beta) pour alpha, beta expressions
+rationelles
+
+L(
+
+\end{enumerate}
+
+\paragraph{Exemple}
+% bla bla bla bla bla ça m'énerve.
+L(
+
+\subsection
+L $\subseteq \Sigma^{*}$ est dit langage régulier s'il eiste une expression 
+régulière e tel que L = L(E)%Pas sûr...
 
 \end{document}
