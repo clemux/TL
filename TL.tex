@@ -413,7 +413,9 @@ Par construction, $f$ est injective.
 
 Montrons qu'il n'y a pas de bijection entre $E$ et $\mathcal{P}(E)$.
 
-Suppons qu'il existe une bijection $g : E \mapsto \mathcal{P}(E)$. Posons $A = { e \in E \mid e \not\in g(e)} \in P(E)$.
+Suppons qu'il existe une bijection $g :
+E \mapsto \mathcal{P}(E)$.
+Posons $A = { e \in E \mid e \not\in g(e)} \in P(E)$.
 
 Comme $g$ est symétrique et $A \in \mathcal{P}(E)$ alors il exise $e_0 \in E$ tel que $g(e_0) = A$.
 
@@ -549,7 +551,7 @@ La clôture réflexive et transitive $R^{*}$ d'une relation binaire $R$ sur un e
 ($R \subseteq E^2$) est la plus petite (au sens de l'inclusion) relation binaire sur $E$ contenant
 $R$ ($R \subseteq R^{*}$) et qui est réflexive et transitive.
 
-\paragraph{Remarque} $R^{*} = { (e, e') \in E^{2} | \textrm{il existe un chemin dans R de début e et de fin e'}}$
+\paragraph{Remarque} $R^{*} = { (e, e') \in E^{2} | \exists \textrm {chemin dans R de début e et de fin e'}}$
 
 \paragraph{Algorithme 1}
 %%% FIXME: trouver bonne façon de présenter un algo
@@ -631,7 +633,7 @@ $R_1, R_2, \dots, R_n$.
 
 $S$ est l'ensemble de tous les sous ensembles de $E$ qui contiennent $E'$ et qui sont
 fermés relativement à $R_1, R_2, ..., R_n$
-alors ${A \s ubseteq E \mid E'\subseteq A}$ est fermé relativement à $R_1, R_2,\dots, R_n$
+alors $ {A \subseteq E \mid E'\subseteq A}$ est fermé relativement à $R_1, R_2,\dots, R_n$
 
 On a  $E \in S$ donc $S$ est non-vide.
 
@@ -656,7 +658,7 @@ Résultat : $F$ est la fermeture de $E'$ relativement aux relations $R_1, R_2, \
 
 $F=E'$
 
-tant qu'il existe un $i$ de ${1, \dots, k}$ et un $(a_1, a_2, \dots, a_d_i)$
+tant qu'il existe un $i$ de ${1, \dots, k}$ et un $(a_1, a_2, \dots , a_i)$
 
 On a 
 % FIXME
@@ -728,10 +730,10 @@ $\Sigma^{*}$ est un ensemble infini dénombrable.
 Un langage $L$ sur un alphabet $\Sigma$ est un sous ensemble de $\Sigma^{*}$.
 
 % joli P, je me souviens plus comment on fait - ah ok
- $\mathcal{P}$(\Sigma^{*}) est l'ensemble de tous les langages sur l'alphabet
+ $\mathcal{P} (\Sigma^{*}) $ est l'ensemble de tous les langages sur l'alphabet
  $\Sigma$.
  
- $\Sigma = \Beta = {0,1}$
+ $\Sigma = \beta = {0,1}$
 $L_1 = {}, L_2 = {\Sigma}$
 $L_3 = {0,1,11}$
 $L_4 = {0,00,01,000,001,010 ... }$
@@ -743,23 +745,23 @@ Sur $\Sigma *$ on définit l'opération de concaténation de la façon suivante 
 Soit $m' \in \Sigma^{*}$.
 
 Si $m = a1, a2, ..., an$ et $m' = a'1, a'2, ..., a'n$,
-alors $m'' = m . m' % .... ?
+alors $m'' = m . m' $ % .... ?
 
-Autrement dit $ \mid m'' \mid  = \mid m \mid +  \mid m' \mid 
+Autrement dit $ \mid m'' \mid  = \mid m \mid +  \mid m' \mid $
 et m''(i) = { m(i) pour i <= i <|m|
 m''(i - |m|) pour m+1 <= i <= |m| + |m'|
 %% i have no idea what I'm writin' -lulz
 
-\section{Propriétés|
+\section{Propriétés}
 
-Soit $\Sigma$ un alphabet
+Soit $\sigma$ un alphabet
 
 1. Pour tout  m de $\Sigma^{*}$ on a :
 
-m . \Epsilon = \Sigma . m = m
-\Sigma est l'élément neutre de l'opération
+$m . \epsilon = \sigma . m = m$
+$\sigma$ est l'élément neutre de l'opération
 
-2. pour tout m, m', m'' de sigma etoile on a : m . (m' . m'') = (m . m') . m''
+2. pour tout m, m', m'' de $\sigma*{*}$on a : m . (m' . m'') = (m . m') . m''
 
 . est opération associative
 
@@ -768,13 +770,13 @@ m . \Epsilon = \Sigma . m = m
 
 Soient m, m' de sigma *, a de sigma et i de |N
 
-1. On dit que m' est un sous-mot de m s'il existe u, v de $\Sigma^{*}$ tels que
+1. On dit que m' est un sous-mot de m s'il existe u, v de $\sigma^{*}$ tels que
 
 \[
   m = u . m' . v
 \]
 
-2. On dit que m' est suffixe de m s'il existe u de $\Sigma^{*}$ tel que
+2. On dit que m' est suffixe de m s'il existe u de $\sigma^{*}$ tel que
 m = u . m' . % ?
 
 3. On dit que m' est préfixe de m s'il existe v de sigma etoile tel que
@@ -795,9 +797,9 @@ $m^ = m^i . m$ pour i>=0
 %ce'est juste cursif
 $\epsilon^{R} = \epsilon$
 
-(a .m)^{R} = m^{R} . a
+$(a .m)^{R} = m^{R} . a$
 
-m^R est appelé le 
+$m^R$ est appelé le 
 % emphase
 mot inverse
 %
@@ -807,7 +809,7 @@ $010101^R = 101010$
 
 \section{Opérations sur les langages}
 
-Soient $\Sigma un alphabet et L1, L2 (L1, L2 inclus dans $\sigma^{*}$)
+Soient $\sigma$ un alphabet et L1, L2 (L1, L2 inclus dans $\sigma^{*}$)
 deux langages.
 
 \subsection{Concaténation}
@@ -827,7 +829,7 @@ L2* = { m1 . m2 . mk | k de |N et m1, m2, ..., mk de L1}
 
 \subsection{~}
 
-$L_1^{+} = L_1^{*} \ {\epsilon} 
+$L_1^{+} = L_1^{*} \ {\epsilon}$
 
 
 \section{Représentations finies des langages}
@@ -844,34 +846,31 @@ Posons $\Sigma_d = \Sigma \cup {\emptyset, *, (, ), \cup}$
 Une expression rationnelle sur $\Sigma$ est un mot sur l'alphabet $\Sigma . d$
 obtenu en respectant les règles suivantes.
 
-\begin{\begin{enumerate}
+\begin{enumerate}
 
-  \item $\emptyset$ et $a \in \Sigma$ sont des expressions régulières pour 
+  \item $\emptyset$ et $a \in \sigma$ sont des expressions régulières pour 
   tout $a \in \Sigma$
   
   \item Si $\alpha$ et $\beta$ sont des expressions régulières alors 
-  (\alpha \beta) est une expression régulière%--> Parenthèses entourées!!
-  
+  $(\alpha \beta)$ est une expression régulière%--> Parenthèses entourées!!
   \item Si alpha et beta sont des expressions regulieres alors
   \[ 
     ( \alpha \cup \beta ) est une expression régulière
   \]
-  \item Si \alpha est une expression régulière alors \alpha * % * entourée
+  \item Si $\alpha est une expression régulière alors \alpha * $ % * entourée
   est une expression régulière.
-  \item Seuls les mots de $\Sigma^{*}_{d} qui sont construits en utilisant les
+  \item Seuls les mots de $\Sigma^{*}_{d}$ qui sont construits en utilisant les
   règles $R_1, R_2, R_3 et R_4$ sont des expressions régulières.
 \end{enumerate}
 
-\section{Langage associé à une expression rationnelle)
-
+\section{Langage associé à une expression rationnelle}
 Soit e une expression rationnelle sur un alphabet Sigma.
 
 Le langage L(e) % joli L
 décrit par l'expression rationnelle e est obtenu en interprétant les caractères
 de $\Sigma_d$ de la façon suivante :
 \begin{enumerate}
-\item L(\emptyset) = \emptyset = {}
-
+\item $L(\emptyset) = \emptyset = {}$
 \item L(a)= { a} pour tout a $\in \Sigma$
 
 % aucune idée des symboles utilisés ici autour de alpha et beta
@@ -881,13 +880,13 @@ rationelles
 
 L(
 
-
+\end{enumerate}
 \paragraph{Exemple}
 % bla bla bla bla bla ça m'énerve.
 L(
 
 \subsection
-L $\subseteq \Sigma^{*} est dit langage régulier s'il eiste une expression 
+L $\subseteq \Sigma^{*}$ est dit langage régulier s'il eiste une expression 
 régulière e tel que L = L(E)%Pas sûr...
 
 \end{document}

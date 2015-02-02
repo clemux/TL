@@ -7,11 +7,17 @@ cas de conflit.
 
 pour stmaryrd.sty -> c'est dans `texlive-math-extra`
 
-Commentaires
-------------
+Si vous ne connaissez pas un symbole, vous pouvez le dessiner à la
+souris avec cet outil magique
+http://detexify.kirelabs.org/classify.html
 
-tags
-~~~~
+Pour dessiner des automates, on pourra utiliser ça :
+http://madebyevan.com/fsm/
 
-FIXME: erreur à corriger
-CHECKME: erreur potentielle à vérifier
+## Commentaires
+
+### tags
+
+ - FIXME : erreur à corriger
+ - CHECKME : erreur potentielle à vérifier
+ - EXO : exercice pour le cours suivant
